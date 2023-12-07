@@ -1,4 +1,6 @@
-# Initializing Minikube
+# Spark on Kubernetes
+
+## Initializing Minikube
 
 Read how to install Minikube:
 https://minikube.sigs.k8s.io/docs/start/
@@ -13,7 +15,7 @@ $ minikube start machine
 $ minikube dashboard
 ```
 
-# Deploying Spark on Minikube
+## Deploying Spark on Minikube
 
 Build the Docker image:
 
@@ -38,7 +40,7 @@ Add an entry to hosts:
 $ echo "$(minikube ip) " | sudo tee -a /etc/hosts
 ```
 
-# Checking the new Spark cluster
+### Checking the new Spark cluster
 
 Run on Spark to check that it works
 
@@ -49,9 +51,7 @@ val mySplit = myWords.split(" ").foldLeft(Map.empty[String, Int]) {
 }
 ```
 
-# Example notebook
-
-# Example of using Delta Lake 0.4 without Databricks
+## Example notebook from Databricks
 
 [Delta Lake](https://delta.io/) is an open-source storage layer that brings ACID transactions to Apache Spark™ and big data workloads. But it is **way more** then that!
 
@@ -66,7 +66,14 @@ Delta Lake examples in this notebook:
 * View audit history of table
 * Merge (union) of two tables which remove duplicates, updates rows and add a new row
 
-For testing this docker can be used: ```docker run -it --rm -p 8888:8888 -p 4040:4040 jupyter/pyspark-notebook```
+## Generate
+
+Generate py-files:
+
+```sh
+pip install -r requirements
+python ipynb2py.py
+```
 
 ### Author
 
